@@ -137,9 +137,10 @@ int main() {
         }
         if (i == 1)
         {
-            auto it = lis.begin();
-            advance(it, 10001);
-            lis.erase(it);
+            auto it1 = lis.begin();
+            advance(it1, 10005);
+            lis.erase(it1);
+
         }
         if (i == 2)
         {
@@ -156,7 +157,7 @@ int main() {
 
         timeDelete.push_back(duration.count());
     }
-
+    cout << "SSSSSS" << endl;
     cout << setw(10) << right << "Operation" << setw(10) << right << "Vector" << setw(10) << right << "List" << setw(10) << right << "Set" << endl;
     cout << setw(10) << right << "Read" << setw(10) << right << timeRead[0] << setw(10) << right << timeRead[1] << setw(10) << right << timeRead[2] << endl;
     cout << setw(10) << right << "Sort" << setw(10) << right << timeSort[0] << setw(10) << right << timeSort[1] << setw(10) << right << timeSort[2] << endl;
