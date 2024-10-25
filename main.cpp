@@ -101,16 +101,17 @@ int main() {
         // Example loop to measure
         if (i == 0)
         {
-            sort(vec.begin(), vec.end());
+            vec.insert(vec.begin() + 10000, "TESTCODE");
         }
         if (i == 1)
         {
-
-            lis.sort();
+            auto it = lis.begin();
+            advance(it, 10000);
+            lis.insert(it, "TESTCODE");
         }
         if (i == 2)
         {
-            timeSort.push_back(-1);
+            se.insert("TESTCODE");
         }
 
         // End timing
@@ -121,6 +122,41 @@ int main() {
 
         timeInsert.push_back(duration.count());
     }
+
+    for(int i = 0; i < 3; i++)
+    {
+        // Start timing
+        auto start = high_resolution_clock::now();
+
+        // Example loop to measure
+        if (i == 0)
+        {
+            auto it = vec.begin();
+            advance(it, 10001);
+            vec.erase(it);
+        }
+        if (i == 1)
+        {
+            auto it = lis.begin();
+            advance(it, 10001);
+            lis.erase(it);
+        }
+        if (i == 2)
+        {
+            auto it = se.begin();
+            advance(it, 10001);
+            se.erase(it);
+        }
+
+        // End timing
+        auto end = high_resolution_clock::now();
+
+        // Calculate duration
+        auto duration = duration_cast<milliseconds>(end - start);
+
+        timeDelete.push_back(duration.count());
+    }
+
 
     return 0;
 }
