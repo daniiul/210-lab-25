@@ -59,7 +59,7 @@ int main() {
         auto end = high_resolution_clock::now();
 
         // Calculate duration
-        auto duration = duration_cast<milliseconds>(end - start);
+        auto duration = duration_cast<microseconds>(end - start);
 
         timeRead.push_back(duration.count());
         inputFile.clear();
@@ -90,7 +90,7 @@ int main() {
         auto end = high_resolution_clock::now();
 
         // Calculate duration
-        auto duration = duration_cast<milliseconds>(end - start);
+        auto duration = duration_cast<microseconds>(end - start);
 
         timeSort.push_back(duration.count());
     }
@@ -120,7 +120,7 @@ int main() {
         auto end = high_resolution_clock::now();
 
         // Calculate duration
-        auto duration = duration_cast<milliseconds>(end - start);
+        auto duration = duration_cast<microseconds>(end - start);
 
         timeInsert.push_back(duration.count());
     }
@@ -155,7 +155,7 @@ int main() {
         auto end = high_resolution_clock::now();
 
         // Calculate duration
-        auto duration = duration_cast<milliseconds>(end - start);
+        auto duration = duration_cast<microseconds>(end - start);
 
         timeDelete.push_back(duration.count());
     }
@@ -165,6 +165,8 @@ int main() {
     cout << setw(10) << right << "Sort" << setw(10) << right << timeSort[0] << setw(10) << right << timeSort[1] << setw(10) << right << timeSort[2] << endl;
     cout << setw(10) << right << "Insert" << setw(10) << right << timeInsert[0] << setw(10) << right << timeInsert[1] << setw(10) << right << timeInsert[2] << endl;
     cout << setw(10) << right << "Delete" << setw(10) << right << timeDelete[0] << setw(10) << right << timeDelete[1] << setw(10) << right << timeDelete[2] << endl;
+
+
 
     return 0;
 }
