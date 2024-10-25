@@ -1,9 +1,12 @@
 # depslib dependency file v1.0
-1729835554 source:c:\users\guine\onedrive\documents\codeblocks\210-lab-25\main.cpp
+1729838126 source:c:\users\guine\onedrive\documents\codeblocks\210-lab-25\main.cpp
 	<iostream>
 	<chrono>
 	<list>
 	<set>
 	<vector>
 	<iomanip>
+	<string>
+	<fstream>
+	<algorithm>
 
