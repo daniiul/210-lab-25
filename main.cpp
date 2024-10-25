@@ -5,6 +5,8 @@
 #include <vector>
 #include <iomanip>
 #include <string>
+#include <fstream>
+#include <algorithm>
 using namespace std;
 using namespace std::chrono;
 
@@ -17,10 +19,14 @@ int main() {
         cout << "Error! Can't open File!";
     }
 
-    vector<string> timeRead;
-    vector<string> timeSort;
-    vector<string> timeInsert;
-    vector<string> timeDelete;
+    vector<int> timeRead;
+    vector<int> timeSort;
+    vector<int> timeInsert;
+    vector<int> timeDelete;
+
+    vector<string> vec;
+    list<string> lis;
+    set<string> se;
 
     for(int i = 0; i < 3; i++)
     {
@@ -30,26 +36,24 @@ int main() {
         // Example loop to measure
         if (i == 0)
         {
-            vector<string> in;
             string temp;
             while(getline(inputFile, temp))
-                in.push_back(temp);
+                vec.push_back(temp);
         }
         if (i == 1)
         {
-            list<string> in;
+
             string temp;
             while(getline(inputFile, temp))
-                in.push_back(temp);
+                lis.push_back(temp);
         }
         if (i == 2)
         {
-            set<string> in;
+
             string temp;
             while(getline(inputFile, temp))
-                in.insert(temp);
+                se.insert(temp);
         }
-
 
         // End timing
         auto end = high_resolution_clock::now();
@@ -58,7 +62,64 @@ int main() {
         auto duration = duration_cast<milliseconds>(end - start);
 
         timeRead.push_back(duration.count());
+    }
 
+    for(int i = 0; i < 3; i++)
+    {
+        // Start timing
+        auto start = high_resolution_clock::now();
+
+        // Example loop to measure
+        if (i == 0)
+        {
+            sort(vec.begin(), vec.end());
+        }
+        if (i == 1)
+        {
+
+            lis.sort();
+        }
+        if (i == 2)
+        {
+            timeSort.push_back(-1);
+        }
+
+        // End timing
+        auto end = high_resolution_clock::now();
+
+        // Calculate duration
+        auto duration = duration_cast<milliseconds>(end - start);
+
+        timeSort.push_back(duration.count());
+    }
+
+    for(int i = 0; i < 3; i++)
+    {
+        // Start timing
+        auto start = high_resolution_clock::now();
+
+        // Example loop to measure
+        if (i == 0)
+        {
+            sort(vec.begin(), vec.end());
+        }
+        if (i == 1)
+        {
+
+            lis.sort();
+        }
+        if (i == 2)
+        {
+            timeSort.push_back(-1);
+        }
+
+        // End timing
+        auto end = high_resolution_clock::now();
+
+        // Calculate duration
+        auto duration = duration_cast<milliseconds>(end - start);
+
+        timeInsert.push_back(duration.count());
     }
 
     return 0;
