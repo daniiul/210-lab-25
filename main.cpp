@@ -62,6 +62,8 @@ int main() {
         auto duration = duration_cast<milliseconds>(end - start);
 
         timeRead.push_back(duration.count());
+        inputFile.clear();
+        inputFile.seekg(0);
     }
 
     for(int i = 0; i < 3; i++)
@@ -157,7 +159,7 @@ int main() {
 
         timeDelete.push_back(duration.count());
     }
-    cout << "SSSSSS" << endl;
+
     cout << setw(10) << right << "Operation" << setw(10) << right << "Vector" << setw(10) << right << "List" << setw(10) << right << "Set" << endl;
     cout << setw(10) << right << "Read" << setw(10) << right << timeRead[0] << setw(10) << right << timeRead[1] << setw(10) << right << timeRead[2] << endl;
     cout << setw(10) << right << "Sort" << setw(10) << right << timeSort[0] << setw(10) << right << timeSort[1] << setw(10) << right << timeSort[2] << endl;
