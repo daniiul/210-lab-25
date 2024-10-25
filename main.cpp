@@ -28,6 +28,7 @@ int main() {
     list<string> lis;
     set<string> se;
 
+    // reads all the codes in text files into vector, list, and set
     for(int i = 0; i < 3; i++)
     {
         // Start timing
@@ -66,6 +67,7 @@ int main() {
         inputFile.seekg(0);
     }
 
+    // sorts the vectors and list
     for(int i = 0; i < 3; i++)
     {
         // Start timing
@@ -95,6 +97,7 @@ int main() {
         timeSort.push_back(duration.count());
     }
 
+    // inserts an element into middle of vector, list, set
     for(int i = 0; i < 3; i++)
     {
         // Start timing
@@ -125,6 +128,7 @@ int main() {
         timeInsert.push_back(duration.count());
     }
 
+    // deletes an element from vector, list and set
     for(int i = 0; i < 3; i++)
     {
         // Start timing
